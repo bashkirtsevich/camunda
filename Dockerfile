@@ -1,23 +1,29 @@
 FROM java:8
 
-ENV VERSION 7.8.0
-ENV DISTRO tomcat
-ENV SERVER apache-tomcat-8.0.47
-ENV LIB_DIR /camunda/lib/
-ENV SERVER_CONFIG /camunda/conf/server.xml
-ENV NEXUS https://app.camunda.com/nexus/service/local/artifact/maven/redirect
-
 WORKDIR /camunda
 
-# add camunda distro
+# Deployment environment variables
+ENV NEXUS=https://app.camunda.com/nexus/service/local/artifact/maven/redirect
+ENV DISTRO=tomcat
+ENV VERSION=7.8.0
+ENV SERVER=apache-tomcat-8.0.47
+ENV LIB_DIR=/camunda/lib/
+ENV SERVER_CONFIG=/camunda/conf/server.xml
+
+# Deployment
 RUN wget -O - "${NEXUS}?r=public&g=org.camunda.bpm.${DISTRO}&a=camunda-bpm-${DISTRO}&v=${VERSION}&p=tar.gz" | tar xzf - -C /camunda/ server/${SERVER} --strip 2
-# add scripts
-ADD bin/* /usr/local/bin/
-# add database drivers
-# RUN /usr/local/bin/download-database-drivers.sh "${NEXUS}?r=public&g=org.camunda.bpm&a=camunda-database-settings&v=${VERSION}&p=pom"
-# set folder writeable
+RUN wget -O "${LIB_DIR}/postgresql-42.2.1.jar" "https://jdbc.postgresql.org/download/postgresql-42.2.1.jar"
 RUN chmod a+rwx -R /camunda
+
+ADD bin/* /camunda/bin
+ADD conf/server.xml ${SERVER_CONFIG}
+
+# Startup environment variables
+ENV DB_DRIVER=org.postgresql.Driver
+ENV DB_URL=postgresql://postgresql:5432
+ENV DB_USER=camunda
+ENV DB_PASSWORD=camunda
 
 EXPOSE 8080
 
-CMD ["/usr/local/bin/configure-and-run.sh"]
+CMD [ "/camunda/bin/catalina.sh", "run" ]
