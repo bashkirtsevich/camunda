@@ -24,5 +24,6 @@ docker run -d --network my_network -p 8080:8080 -e DB_URL=postgresql://postgresq
 Open browser and open `http://localhost:8080/camunda/app/welcome/default/#/welcome`
 
 # Hub's
-GitHub: `https://github.com/bashkirtsevich/camunda`
-DockerHub: `https://hub.docker.com/r/bashkirtsevich/camunda/`
+GitHub: https://github.com/bashkirtsevich/camunda
+
+DockerHub: https://hub.docker.com/r/bashkirtsevich/camunda/
