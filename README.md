@@ -9,7 +9,7 @@ Camunda BPM platform adapted for OpenShift.
 * `LIB_DIR` -- `/camunda/lib/`
 * `SERVER_CONFIG` -- `/camunda/conf/server.xml`
 
-Database connection environment variables (by default):
+## Database connection environment variables (by default):
 * `DB_DRIVER` -- `org.postgresql.Driver`
 * `DB_URL` -- `postgresql://postgresql:5432`
 * `DB_USER` -- `camunda`
