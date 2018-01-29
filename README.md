@@ -18,9 +18,9 @@ Camunda BPM platform adapted for OpenShift.
 ## Startup:
 ```
 docker pull bashkirtsevich/camunda
-docker run -d --network my_network -p 8080:8080 -e DB_URL=postgresql://postgresql:5432/camunda -e DB_USER=scoring -e DB_PASSWORD=scoring --name camunda-test bashkirtsevich/camunda
+docker run -d --network my_network -p 8080:8080 -e DB_URL=postgresql://postgresql:5432/camunda -e DB_USER=camunda -e DB_PASSWORD=camunda --name camunda-test bashkirtsevich/camunda
 ```
-## Use
+## Usage
 Open browser and open `http://localhost:8080/camunda/app/welcome/default/#/welcome`
 
 # Hub's
