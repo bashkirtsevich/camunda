@@ -54,7 +54,7 @@
               factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
               uniqueResourceName="process-engine"
               driverClassName="${db_driver}"
-              url="jdbc:${db_url}:./camunda-h2-dbs/process-engine;MVCC=TRUE;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE"
+              url="jdbc:${db_url}"
               defaultTransactionIsolation="READ_COMMITTED"
               username="${db_user}"  
               password="${db_password}"
