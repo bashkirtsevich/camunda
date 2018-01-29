@@ -15,7 +15,7 @@ RUN wget -O - "${NEXUS}?r=public&g=org.camunda.bpm.${DISTRO}&a=camunda-bpm-${DIS
 RUN wget -O "${LIB_DIR}/postgresql-42.2.1.jar" "https://jdbc.postgresql.org/download/postgresql-42.2.1.jar"
 RUN chmod a+rwx -R /camunda
 
-ADD bin/* /camunda/bin
+ADD bin/* /camunda/bin/
 ADD conf/server.xml ${SERVER_CONFIG}
 
 # Startup environment variables
