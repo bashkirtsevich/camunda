@@ -10,10 +10,11 @@ ENV VERSION=7.8.0
 ENV SERVER=apache-tomcat-8.0.47
 ENV LIB_DIR=/camunda/lib/
 ENV SERVER_CONFIG=/camunda/conf/server.xml
+ENV DRIVER_URL=https://jdbc.postgresql.org/download/postgresql-42.2.1.jar
 
 # Deployment
 RUN wget -O - "${NEXUS}?r=public&g=org.camunda.bpm.${DISTRO}&a=camunda-bpm-${DISTRO}&v=${VERSION}&p=tar.gz" | tar xzf - -C /camunda/ server/${SERVER} --strip 2
-RUN wget -O "${LIB_DIR}/postgresql-42.2.1.jar" "https://jdbc.postgresql.org/download/postgresql-42.2.1.jar"
+RUN wget -P "${LIB_DIR}" "${DRIVER_URL}"
 RUN chmod a+rwx -R /camunda
 
 ADD bin/* /camunda/bin/
