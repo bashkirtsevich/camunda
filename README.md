@@ -1,5 +1,5 @@
 # Camunda 
-Camunda BPM platform adopted for OpenShift
+Camunda BPM platform adapted for OpenShift.
 
 ## Deploying environment variables:
 * `NEXUS` -- `https://app.camunda.com/nexus/service/local/artifact/maven/redirect`
