@@ -1,4 +1,5 @@
 FROM java:8
+LABEL maintainer="D.A.Bashkirtsev -- bashkirtsevich@gmail.com"
 
 WORKDIR /camunda
 
