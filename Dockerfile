@@ -21,10 +21,10 @@ ADD bin/* /camunda/bin/
 ADD conf/server.xml ${SERVER_CONFIG}
 
 # Startup environment variables
-ENV DB_DRIVER=org.postgresql.Driver
-ENV DB_URL=jdbc:postgresql://postgresql:5432
-ENV DB_USER=camunda
-ENV DB_PASSWORD=camunda
+ENV DB_DRIVER=org.h2.Driver
+ENV DB_URL=jdbc:h2:./camunda-h2-dbs/process-engine;MVCC=TRUE;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE
+ENV DB_USER=sa
+ENV DB_PASSWORD=sa
 
 EXPOSE 8080
 
