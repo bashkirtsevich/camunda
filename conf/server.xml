@@ -54,7 +54,7 @@
               factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
               uniqueResourceName="process-engine"
               driverClassName="${db_driver}"
-              url="jdbc:${db_url}"
+              url="${db_url}"
               defaultTransactionIsolation="READ_COMMITTED"
               username="${db_user}"  
               password="${db_password}"
