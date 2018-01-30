@@ -22,7 +22,7 @@ ADD conf/server.xml ${SERVER_CONFIG}
 
 # Startup environment variables
 ENV DB_DRIVER=org.postgresql.Driver
-ENV DB_URL=postgresql://postgresql:5432
+ENV DB_URL=jdbc:postgresql://postgresql:5432
 ENV DB_USER=camunda
 ENV DB_PASSWORD=camunda
 
