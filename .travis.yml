@@ -1,0 +1,19 @@
+sudo: required
+
+language: java
+
+services:
+  - docker
+
+install:
+  - echo "install nothing!"
+
+script:
+  - echo "no tests!"
+
+after_success:
+  - docker --version
+  - docker build -t camunda .
+  - docker tag camunda $DOCKER_USERNAME/camunda
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker push $DOCKER_USERNAME/camunda:latest
